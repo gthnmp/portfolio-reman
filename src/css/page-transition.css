@@ -1,12 +1,10 @@
-.enter {
-  animation: enter 1500ms cubic-bezier(.27,.79,.11,.99);
-  transform: translateY(0%);
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
-@keyframes enter {
-  from {
-    transform: translateY(100%);
-  } to {
-    transform: translateY(0%);
-  }
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
 }

@@ -1,21 +1,21 @@
 import projects from '../../public/works.json';
 
+
 const selected = `
-<div class="content w-full h-full flex flex-col gap-16">
-  <header class="fill-image p-1 w-auto h-20 flex gap-6">
-  ${projects
+<div class="content selection w-full h-full flex flex-col gap-16">
+  <header style="transform:translateX(0%)" class="fill-image p-1 w-auto h-20 flex gap-2">
+    ${projects
     .map(
       project => `
       <div class="item-container">
-        <h1 class="item-title">${project.title}</h1>
-        <img class="item-thumbnail" src="${project.src}" alt="${project.alt}">
+        <img class="selection item-thumbnail bg-neutral-900" src="${project.src}" alt="${project.alt}"/>
       </div>
-    `
-    )
-    .join('')}
+      `
+      )
+      .join('')}
   </header>
   <main class="w-screen h-screen">
-    <div class="h-full w-96 bg-gray-600">
+    <div class="h-full w-96 bg-neutral-800">
     </div>
   </main>
 </div>`
@@ -23,7 +23,7 @@ const selected = `
 const about = `
 <div class="content w-screen h-screen flex flex-col gap-16">
   <header class="absolute p-4 grid grid-cols-12 grid-rows-1 uppercase font-medium">
-    <div class="col-span-3 flex flex-col gap-4 leading-4 text-3xl z-50">
+  <div class="col-span-3 flex flex-col gap-4 leading-4 text-3xl z-50">
       <p>+62 123 123 123</p>
       <p>raflydz@gmail.com</p>
     </div>
@@ -37,10 +37,10 @@ const about = `
     <div class="flex flex-col items-center justify-center font-medium uppercase">
       <h1>CATALOGUED</h1>
       <h1>WORKS</h1>
-      <h1>REMAN Fathurrahman</h1>
+      <h1>Rafly Fathurrahman</h1>
       <h1>C.2023</h1>
     </div>
-  </main>
+    </main>
 </div>
 `
 
@@ -52,7 +52,7 @@ const overview = `
       <p>14 Images</p>
     </div>
     <div class="col-start-3">
-      <p>2018 ━</p>
+    <p>2018 ━</p>
       <p>Ongoing</p>
     </div>
   </header>
@@ -61,9 +61,9 @@ const overview = `
       .map(
         project => `
         <div class="item-container">
-          <h1 class="item-title">${project.title}</h1>
+        <h1 class="item-title">${project.title}</h1>
           <img class="item-thumbnail" src="${project.src}" alt="${project.alt}">
-        </div>
+          </div>
       `
       )
       .join('')}
@@ -71,27 +71,41 @@ const overview = `
 </div>
 `;
 
-const routes = {
+const routes: { [path: string]: string }  = {
   "/": overview,
   "/about": about,
   "/selected": selected
 };
 
-const render = (path) => {
-  document.querySelector('#app').innerHTML = routes[path] || '<h1>Not Found</h1>';
-  document.querySelectorAll('[href^="/"]').forEach(el => 
-    el.addEventListener("click", evt => {
-      evt.preventDefault();
-      const {pathname: path} = new URL(evt.target.href);
-      window.history.pushState({path}, path, path);
-      render(path);
+const render = (path: string) => {
+  const appElement = document.querySelector('#app');
+  
+  if (appElement) {
+    appElement.classList.add('fade-out');
+    setTimeout(() => {
+      appElement.innerHTML = routes[path] || '<h1>Not Found</h1>';
+      appElement.classList.remove('fade-out');
+      setTimeout(() => {
+        appElement.classList.add('fade-in');
+      }, 0);
+    }, 300);
+  }
+
+  document.querySelectorAll('[href^="/"]').forEach(link => 
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const target = e.target as HTMLAnchorElement;
+      const { pathname } = new URL(target.href);
+      window.history.pushState({ path: pathname }, pathname, pathname);
+      render(pathname);
     })
   );
-}
+};
 
-window.addEventListener('popstate', (e) => {
-  render(new URL(window.location.href).pathname)
-})
+window.addEventListener("popstate", (event) => {
+  const path = event.state ? event.state.path : window.location.pathname;
+  render(path);
+});
 
-render('/')
+render(window.location.pathname);
 

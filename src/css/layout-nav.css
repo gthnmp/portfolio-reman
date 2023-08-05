@@ -1,0 +1,67 @@
+.navigation-layout {
+  
+  background-color: white;
+  font-size: 0.75rem/* 12px */;
+  line-height: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1rem;
+
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  height: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  gap: 1rem;
+
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+}
+
+  .navigation-layout > div {
+    display: flex;    
+    align-items: center;
+    width: auto;
+  }
+  
+  .navigation-layout > div > a {
+    overflow: hidden;
+    position: relative;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+  }
+  
+    .navigation-layout > div > a::after {
+      position: absolute;
+      content: "";
+      background-color: black;
+      width: 100%;
+      height: 0.5px;
+      left: 0;
+      bottom: 0;
+      animation: mouse-leave 500ms;
+      transform: translateX(-100%);
+    }
+    
+    .navigation-layout > div > a:hover::after {
+      animation: mouse-enter 500ms;
+      transform: translateX(0%);
+    }
+
+@keyframes mouse-leave {
+  from {
+    transform: translateX(0%);
+  } to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes mouse-enter {
+  from {
+    transform: translateX(-100%);
+  } to {
+    transform: translateX(0%);
+  }
+}

@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/css/global.css">
+    <link rel="stylesheet" href="src/css/layout-main.css">
+    <link rel="stylesheet" href="src/css/layout-nav.css">
+    <link rel="stylesheet" href="src/css/page-transition.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Rafly Fathurrahman</title>
+  </head>
+  <body class="font-inter text-neutral-700">
+    <div id="app" class="w-full h-full">
+      <div class="content w-full h-full p-4 flex flex-col gap-16">
+        <header class="grid grid-cols-9 grid-rows-1 text-xs uppercase font-medium leading-4">
+          <div>
+            <p>OVERVIEW</p>
+            <p>14 Images</p>
+          </div>
+          <div class="col-start-3">
+            <p>2018 ━</p>
+            <p>Ongoing</p>
+          </div>
+        </header>
+        <main id="main" class="overview-main-layout fill-image py-4 auto-rows-max">
+        </main>
+      </div>
+    </div>
+    <nav class="navigation-layout">
+      <div class="col-span-2">
+        <h1>Catalogued Works</h1>
+      </div>
+      <div class="col-span-3">
+        <a href="/about.html">Freelance Graphic Designer</a>
+      </div>
+      <div class="col-start-7">
+        <a href="/">Overview</a>
+      </div>
+      <div>
+        <a href="/selected.html">Selected</a>
+      </div>
+    </nav>
+    <script defer type="module" src="/src/ts/main.ts"></script>
+    <script defer type="module" src="/src/ts/projects.ts"></script>
+  </body>
+</html>

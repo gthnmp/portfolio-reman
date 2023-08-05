@@ -1,0 +1,72 @@
+[
+  {
+    "title": "beehive.jpg",
+    "src": "/works/beehive.webp",
+    "alt": "Beehive"
+  },
+  {
+    "title": "cycle.jpg",
+    "src": "/works/cycle.jpg",
+    "alt": "Cycle"
+  },
+  {
+    "title": "folio_v1_1.jpg",
+    "src": "/works/folio_v1_1.jpg",
+    "alt": "Folio Image 1"
+  },
+  {
+    "title": "folio_v1_2.jpg",
+    "src": "/works/folio_v1_2.jpg",
+    "alt": "Folio Image 2"
+  },
+  {
+    "title": "folio_v1_3.jpg",
+    "src": "/works/folio_v1_3.jpg",
+    "alt": "Folio Image 3"
+  },
+  {
+    "title": "mancam_1.jpg",
+    "src": "/works/mancam_1.jpg",
+    "alt": "Mancam Image 1"
+  },
+  {
+    "title": "mancam_2.jpg",
+    "src": "/works/mancam_2.jpg",
+    "alt": "Mancam Image 2"
+  },
+  {
+    "title": "mancam_3.jpg",
+    "src": "/works/mancam_3.jpg",
+    "alt": "Mancam Image 3"
+  },
+  {
+    "title": "mancam_4.jpg",
+    "src": "/works/mancam_4.jpg",
+    "alt": "Mancam Image 4"
+  },
+  {
+    "title": "mancam_5.jpg",
+    "src": "/works/mancam_5.webp",
+    "alt": "Mancam Image 5"
+  },
+  {
+    "title": "mancam_6.jpg",
+    "src": "/works/mancam_6.webp",
+    "alt": "Mancam Image 6"
+  },
+  {
+    "title": "socialsphere_1.jpg",
+    "src": "/works/sphere.jpg",
+    "alt": "Sphere"
+  },
+  {
+    "title": "socialsphere_2.jpg",
+    "src": "/works/sphere_2.jpg",
+    "alt": "Sphere 2"
+  },
+  {
+    "title": "scoop.jpg",
+    "src": "/works/scoop.webp",
+    "alt": "Scoop"
+  }
+]

@@ -33,12 +33,12 @@
 }
 
 .selection.item-container {
-  width: 6rem;
-  height: auto;
+  width: auto;
+  height: 4rem;
 }
 
 .selection.item-thumbnail {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
 }

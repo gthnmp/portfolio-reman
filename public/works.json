@@ -1,72 +1,117 @@
 [
   {
-    "title": "beehive.jpg",
-    "src": "/works/beehive.webp",
-    "alt": "Beehive"
-  },
-  {
-    "title": "cycle.jpg",
-    "src": "/works/cycle.jpg",
-    "alt": "Cycle"
-  },
-  {
-    "title": "folio_v1_1.jpg",
-    "src": "/works/folio_v1_1.jpg",
-    "alt": "Folio Image 1"
-  },
-  {
-    "title": "folio_v1_2.jpg",
-    "src": "/works/folio_v1_2.jpg",
-    "alt": "Folio Image 2"
-  },
-  {
-    "title": "folio_v1_3.jpg",
-    "src": "/works/folio_v1_3.jpg",
-    "alt": "Folio Image 3"
-  },
-  {
     "title": "mancam_1.jpg",
-    "src": "/works/mancam_1.jpg",
-    "alt": "Mancam Image 1"
+    "src": "/projects/ManCam_01.webp",
+    "alt": "Mancam"
   },
   {
     "title": "mancam_2.jpg",
-    "src": "/works/mancam_2.jpg",
-    "alt": "Mancam Image 2"
+    "src": "/projects/ManCam_02.webp",
+    "alt": "Mancam"
   },
   {
     "title": "mancam_3.jpg",
-    "src": "/works/mancam_3.jpg",
-    "alt": "Mancam Image 3"
+    "src": "/projects/ManCam_03.webp",
+    "alt": "Mancam"
   },
   {
     "title": "mancam_4.jpg",
-    "src": "/works/mancam_4.jpg",
-    "alt": "Mancam Image 4"
+    "src": "/projects/ManCam_04.webp",
+    "alt": "Mancam"
   },
   {
     "title": "mancam_5.jpg",
-    "src": "/works/mancam_5.webp",
-    "alt": "Mancam Image 5"
+    "src": "/projects/ManCam_05.webp",
+    "alt": "Mancam"
   },
   {
     "title": "mancam_6.jpg",
-    "src": "/works/mancam_6.webp",
-    "alt": "Mancam Image 6"
+    "src": "/projects/ManCam_06.webp",
+    "alt": "Mancam"
+  },
+  {
+    "title": "scoop_1.jpg",
+    "src": "/projects/Scoop_01.webp",
+    "alt": "Scoop"
+  },
+  {
+    "title": "scoop_2.jpg",
+    "src": "/projects/Scoop_02.webp",
+    "alt": "Scoop"
+  },
+  {
+    "title": "scoop_3.jpg",
+    "src": "/projects/Scoop_03.webp",
+    "alt": "Scoop"
+  },
+  {
+    "title": "scoop_4.jpg",
+    "src": "/projects/Scoop_04.webp",
+    "alt": "Scoop"
+  },
+  {
+    "title": "scoop_5.jpg",
+    "src": "/projects/Scoop_05.webp",
+    "alt": "Scoop"
+  },
+  {
+    "title": "scoop_6.jpg",
+    "src": "/projects/Scoop_06.webp",
+    "alt": "Scoop"
+  },
+  {
+    "title": "scoop_7.jpg",
+    "src": "/projects/Scoop_07.webp",
+    "alt": "Scoop"
   },
   {
     "title": "socialsphere_1.jpg",
-    "src": "/works/sphere.jpg",
-    "alt": "Sphere"
+    "src": "/projects/SocialSphere_01.webp",
+    "alt": "SocialSphere"
   },
   {
     "title": "socialsphere_2.jpg",
-    "src": "/works/sphere_2.jpg",
-    "alt": "Sphere 2"
+    "src": "/projects/SocialSphere_02.webp",
+    "alt": "SocialSphere"
   },
   {
-    "title": "scoop.jpg",
-    "src": "/works/scoop.webp",
-    "alt": "Scoop"
+    "title": "socialsphere_3.jpg",
+    "src": "/projects/SocialSphere_03.webp",
+    "alt": "SocialSphere"
+  },
+  {
+    "title": "socialsphere_4.jpg",
+    "src": "/projects/SocialSphere_04.webp",
+    "alt": "SocialSphere"
+  },
+  {
+    "title": "cycle_1.jpg",
+    "src": "/projects/Cycle_01.webp",
+    "alt": "Cycle"
+  },
+  {
+    "title": "cycle_3.jpg",
+    "src": "/projects/Cycle_03.webp",
+    "alt": "Cycle"
+  },
+  {
+    "title": "pfv1_1.jpg",
+    "src": "/projects/PFV1_01.webp",
+    "alt": "PFV1"
+  },
+  {
+    "title": "pfv1_2.jpg",
+    "src": "/projects/PFV1_02.webp",
+    "alt": "PFV1"
+  },
+  {
+    "title": "pfv1_3.jpg",
+    "src": "/projects/PFV1_03.webp",
+    "alt": "PFV1"
+  },
+  {
+    "title": "pfv1_4.jpg",
+    "src": "/projects/PFV1_04.webp",
+    "alt": "PFV1"
   }
 ]

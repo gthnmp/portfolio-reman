@@ -13,18 +13,9 @@ const selected = `
       `
       )
       .join('')}
-    ${projects
-    .map(
-      (project) => `
-      <div class="selection item-container">
-        <img draggable="false" class="selection item-thumbnail" src="${project.src}" alt="${project.alt}"/>
-        </div>
-      `
-      )
-      .join('')}
   </header>
   <div class="relative w-1/3 h-full overflow-hidden main-image-container">
-    <img draggable="false" class="main-image h-full absolute bottom-0 left-0 object-contain" src="/works/beehive.webp" alt="kontol"/>
+    <img draggable="false" class="main-image h-full absolute bottom-0 left-0 object-contain" src="/projects/ManCam_01.webp" alt="Main Image"/>
   </div>
 </div>
 

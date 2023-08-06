@@ -16,7 +16,7 @@ class SmoothScroller {
     this.ease = 0.075;
 
     this.selectionHeader = document.querySelector('.selection > header')!;
-    this.itemWidth = document.querySelector('.selection > header > .item-container')!;
+    this.itemWidth = document.querySelector('.selection > header > .item-container:last-child')!;
     this.maximumX = parseFloat(getComputedStyle(this.selectionHeader).width) - parseFloat(getComputedStyle(this.itemWidth).width);
 
     this.smoothScroll = this.smoothScroll.bind(this);

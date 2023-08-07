@@ -2,7 +2,7 @@ import projects from '../../../public/works.json';
 
 const selected = `
 
-<div class="content selection w-screen h-screen grid grid-rows-[auto_1fr] gap-y-16">
+<div class="content selection w-screen h-screen grid grid-rows-[auto_1fr] gap-y-16 pb-8">
   <header style="transform:translateX(0%)" class="fill-image p-1 w-max min-h-20 grid grid-flow-col gap-x-2 scroll-auto overflow-visible">
     ${projects
     .map(
@@ -14,8 +14,8 @@ const selected = `
       )
       .join('')}
   </header>
-  <div class="relative w-1/3 h-full overflow-hidden main-image-container">
-    <img draggable="false" class="main-image h-full absolute bottom-0 left-0 object-contain" src="/projects/ManCam_01.webp" alt="Main Image"/>
+  <div class="relative w-screen h-full overflow-hidden main-image-container">
+    <canvas id="gl" class="w-screen h-full"></canvas>
   </div>
 </div>
 

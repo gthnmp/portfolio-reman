@@ -1,33 +1,18 @@
-export function handleIntersection(entries: IntersectionObserverEntry[], mainImageThumbnail: HTMLImageElement) {
-  entries.forEach(entry => {
+export function handleIntersection(entries: IntersectionObserverEntry[]): string | null {
+  for (const entry of entries) {
     if (entry.isIntersecting) {
-      const src = entry.target.getAttribute('src')!;
-      const cachedImage = localStorage.getItem(src);
-
-      if (cachedImage) {
-        mainImageThumbnail.src = cachedImage;
-      } else {
-        const img = new Image();
-        img.src = src;
-        img.onload = () => {
-          mainImageThumbnail.src = src;
-
-          const canvas = document.createElement('canvas');
-          const context = canvas.getContext('2d')!;
-          canvas.width = img.width;
-          canvas.height = img.height;
-          context.drawImage(img, 0, 0);
-          const imageBase64 = canvas.toDataURL('image/jpeg');
-          localStorage.setItem(src, imageBase64);
-        };
-      }
+      const src = entry.target.getAttribute('src');
+      return src;
     }
-  });
+  }
+  return null;
 }
-
-export default function observeThumbnails(thumbnails: NodeListOf<HTMLImageElement>, mainImageThumbnail: HTMLImageElement) {
+export default function observeThumbnails(thumbnails: NodeListOf<HTMLImageElement>, callback: (src: string | null) => void) {
   const intersectionObserver = new IntersectionObserver(entries => {
-    handleIntersection(entries, mainImageThumbnail);
+    const src = handleIntersection(entries);
+    if(src){
+      callback(src)
+    }
   }, {
     threshold: 0,
     rootMargin: '0px -100% 0px 1px',

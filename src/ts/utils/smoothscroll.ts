@@ -1,4 +1,4 @@
-class SmoothScroller {
+export default class SmoothScroller {
   current: number;
   target: number;
   isDragging: boolean;
@@ -56,19 +56,17 @@ class SmoothScroller {
   handleMouseDown(event: MouseEvent) {
     this.isDragging = true;
     this.startY = event.clientX;
-    document.body.style.cursor = 'grabbing';
   }
 
   handleMouseMove(event: MouseEvent) {
     if (!this.isDragging) return;
     const deltaY = event.clientX - this.startY;
-    this.target = Math.min(this.maximumX, Math.max(0, this.target - deltaY * 2.5));
+    this.target = Math.min(this.maximumX, Math.max(0, this.target - deltaY * 1.5));
     this.startY = event.clientX;
   }
 
   handleMouseUp() {
     this.isDragging = false;
-    document.body.style.cursor = 'default';
   }
 
   handleTouchStart(event: TouchEvent) {
@@ -79,7 +77,7 @@ class SmoothScroller {
   handleTouchMove(event: TouchEvent) {
     if (!this.isDragging) return;
     const deltaY = event.touches[0].clientX - this.startY;
-    this.target = Math.min(this.maximumX, Math.max(0, this.target - deltaY * 2.5));
+    this.target = Math.min(this.maximumX, Math.max(0, this.target - deltaY * 1.5));
     this.startY = event.touches[0].clientX;
   }
 
@@ -98,30 +96,3 @@ class SmoothScroller {
     window.addEventListener('touchend', this.handleTouchEnd);
   }
 }
-
-const observer = new MutationObserver(() => {
-  new SmoothScroller();
-  const projectThumbnails = document.querySelectorAll('.selection.item-thumbnail')
-  const mainImageThumbnail:HTMLImageElement = document.querySelector('.main-image')!
-
-  const intersectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        console.log(entry.target.getAttribute('src'));
-        mainImageThumbnail.src = entry.target.getAttribute('src')!
-      }
-    })
-  }, {
-    threshold: 0, 
-    rootMargin: `0px -100% 0px 1px`,
-  })
-
-  projectThumbnails.forEach(thumbnail => {
-    intersectionObserver.observe(thumbnail)
-  })
-
-});
-
-observer.observe(document.body, { childList: true, subtree: true });
-
-new SmoothScroller();

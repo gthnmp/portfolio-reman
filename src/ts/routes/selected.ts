@@ -1,8 +1,9 @@
 import projects from '../../../public/works.json';
 
-const selected = `
-
+const selected = 
+`
 <div class="content selection w-screen h-screen grid grid-rows-[auto_1fr] gap-y-24 pb-8">
+  <canvas id="gl" class="absolute w-full h-full"></canvas>
   <header style="transform:translateX(0%)" class="fill-image p-1 w-max min-h-20 grid grid-flow-col gap-x-2 scroll-auto overflow-visible">
     ${projects
     .map(
@@ -17,7 +18,6 @@ const selected = `
   <div class="relative w-screen h-full overflow-hidden main-image-container">
   </div>
 </div>
-
 `
 
 export default selected

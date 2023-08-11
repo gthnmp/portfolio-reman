@@ -8,7 +8,6 @@ import initPositionBUffer from "./utils/gl/initPositionBuffer";
 
 function runGL(gl: WebGLRenderingContext, program:WebGLProgram) {
   const mainImageContainer:HTMLDivElement = document.querySelector('.main-image-container')!
-  new SmoothScroller();  
   observeThumbnails((src: string | null) => {
     if (src) {
       const {texture, aspectRatio} = imageCache[src];
@@ -18,18 +17,14 @@ function runGL(gl: WebGLRenderingContext, program:WebGLProgram) {
   }); 
 }
 
-const main = () => {
+export const main = () => {
   const canvas = document.getElementById("gl") as HTMLCanvasElement;
   const { gl, program } = initGL(canvas) 
   works.forEach(work => {
     preloadTexture(gl as WebGLRenderingContext, work.src)
   })
-  
-  const observer: MutationObserver = new MutationObserver(() => {
-    runGL(gl as WebGLRenderingContext, program as WebGLProgram);
-  });
-  
-  observer.observe(document.body, { childList: true, subtree: true });
+  new SmoothScroller();  
+  runGL(gl as WebGLRenderingContext, program as WebGLProgram);
 }
 
-main()
+// main()

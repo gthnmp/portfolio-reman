@@ -1,3 +1,4 @@
+import { main } from "../main";
 import { Overview, Selected, About } from "../routes";
 
 const routes: { [path: string]: string }  = {
@@ -6,20 +7,9 @@ const routes: { [path: string]: string }  = {
   "/selected": Selected
 };
 
-const render = (path: string) => {
-  const appElement = document.querySelector('#app');
-  
-  if (appElement) {
-    appElement.classList.add('fade-out');
-    setTimeout(() => {
-      appElement.innerHTML = routes[path] || '<h1>Not Found</h1>';
-      appElement.classList.remove('fade-out');
-      setTimeout(() => {
-        appElement.classList.add('fade-in');
-      }, 0);
-    }, 300);
-  }
+let listenersAdded = false;
 
+const addLinkListeners = () => {
   document.querySelectorAll('[href^="/"]').forEach(link => 
     link.addEventListener("click", e => {
       e.preventDefault();
@@ -29,6 +19,33 @@ const render = (path: string) => {
       render(pathname);
     })
   );
+
+  listenersAdded = true;
+};
+
+const render = (path: string) => {
+  if (!listenersAdded) {
+    addLinkListeners();
+  }
+  
+  const appElement = document.querySelector('#app');
+  
+  if (appElement) {
+    appElement.classList.add('fade-out');
+    setTimeout(() => {
+      appElement.innerHTML = routes[path] || '<h1>Not Found</h1>';
+      appElement.classList.remove('fade-out');
+      setTimeout(() => {
+        appElement.classList.add('fade-in');
+        const canvas = document.querySelector('#gl') as HTMLCanvasElement
+        if(canvas){
+          console.log('running main');
+          console.log(canvas);
+          main()
+        }
+      }, 0);
+    }, 300);
+  }
 };
 
 window.addEventListener("popstate", (event) => {
@@ -37,4 +54,3 @@ window.addEventListener("popstate", (event) => {
 });
 
 render(window.location.pathname);
-

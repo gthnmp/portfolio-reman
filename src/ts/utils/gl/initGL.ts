@@ -33,8 +33,8 @@ const fragmentShaderSource = `
   `;
 
 
-  interface R {
-    canvas? : HTMLCanvasElement,
+interface R {
+  canvas? : HTMLCanvasElement,
   gl?: WebGLRenderingContext,
   program? : WebGLProgram,
 }
@@ -56,13 +56,13 @@ const initTexCoordBuffer = (gl : WebGLRenderingContext, program:WebGLProgram) =>
 }
 
 
-export default function initGL(): R{
-  const canvas = document.getElementById("gl") as HTMLCanvasElement;
+
+export default function initGL(canvas : HTMLCanvasElement): R{
   const gl = canvas.getContext("webgl") as WebGLRenderingContext;
 
   resizeCanvas(gl.canvas)
   gl.viewport(0, 0, canvas.width, canvas.height)
-  gl.clearColor(1, 1, 1, 0);
+  gl.clearColor(0,0,0, 0);
   gl.clear(gl.COLOR_BUFFER_BIT);
   
   const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource) as WebGLShader
@@ -75,8 +75,7 @@ export default function initGL(): R{
   initTexCoordBuffer(gl, program)
   
   gl.useProgram(program)
-  
   return {
-    gl, program
+    canvas, gl, program
   }
 }

@@ -6,15 +6,8 @@ import initGL from "./utils/gl/initGL";
 import { preloadTexture, imageCache } from "./utils/gl/preloadTexture";
 import initPositionBUffer from "./utils/gl/initPositionBuffer";
 
-function initialize() {
+function runGL(gl: WebGLRenderingContext, program:WebGLProgram) {
   const mainImageContainer:HTMLDivElement = document.querySelector('.main-image-container')!
-  const { gl, program } = initGL() 
-  new SmoothScroller();
-
-  works.forEach(work => {
-    preloadTexture(gl as WebGLRenderingContext, work.src)
-  })
-  
   observeThumbnails((src: string | null) => {
     if (src) {
       const {texture, aspectRatio} = imageCache[src];
@@ -24,8 +17,14 @@ function initialize() {
   }); 
 }
 
-const observer: MutationObserver = new MutationObserver(() => {
-  initialize();
-});
+export const main = () => {
+  const canvas = document.getElementById("gl") as HTMLCanvasElement;
+  const { gl, program } = initGL(canvas) 
+  works.forEach(work => {
+    preloadTexture(gl as WebGLRenderingContext, work.src)
+  })
+  new SmoothScroller();  
+  runGL(gl as WebGLRenderingContext, program as WebGLProgram);
+}
 
-observer.observe(document.body, { childList: true, subtree: true });
+// main()

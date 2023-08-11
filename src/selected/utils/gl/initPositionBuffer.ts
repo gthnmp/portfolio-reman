@@ -1,5 +1,10 @@
 export default function initPositionBUffer (gl:WebGLRenderingContext, program:WebGLProgram, container:HTMLDivElement, imageAspectRatio:number){
-  const containerHeight = container.offsetHeight
+  const rect = container.getBoundingClientRect();
+  
+  const top = rect.top, bottom = rect.bottom;
+  const height = bottom - top
+
+  const containerHeight = height
   const objectHeight = containerHeight;
   const objectWidth = containerHeight * imageAspectRatio
    
@@ -7,12 +12,12 @@ export default function initPositionBUffer (gl:WebGLRenderingContext, program:We
   const positionBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
   var positions = [
-    0, 0,
-    0, objectHeight,
-    objectWidth,  objectHeight,
-    objectWidth,  objectHeight,
-    objectWidth, 0,
-    0, 0,
+    0, top,
+    0, top + objectHeight,
+    objectWidth,  top + objectHeight,
+    objectWidth,  top + objectHeight,
+    objectWidth, top,
+    0, top,
   ];
 
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);

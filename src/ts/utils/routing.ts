@@ -1,11 +1,16 @@
-import { main } from "../main";
+import runGL from "./gl/runGL";
+import SmoothScroller from "./SelectedScroll";
 import { Overview, Selected, About } from "../routes";
+import OverviewPageSmoothScroll from "./OverviewScroll";
 
 const routes: { [path: string]: string }  = {
   "/": Overview,
   "/about": About,
   "/selected": Selected
 };
+
+const overlayElement = document.querySelector('.overlay') as HTMLDivElement;
+const appElement = document.querySelector('#app') as HTMLDivElement;
 
 let listenersAdded = false;
 
@@ -18,34 +23,41 @@ const addLinkListeners = () => {
       window.history.pushState({ path: pathname }, pathname, pathname);
       render(pathname);
     })
-  );
-
-  listenersAdded = true;
-};
-
+    );
+    
+    listenersAdded = true;
+  };
+  
 const render = (path: string) => {
   if (!listenersAdded) {
     addLinkListeners();
   }
   
-  const appElement = document.querySelector('#app');
+  setTimeout(() => {
+    overlayElement.classList.add('active');
+  }, 250);
+  appElement.classList.add('fade-out');
+
+  setTimeout(() => {
+    appElement.innerHTML = routes[path] || '<h1>Not Found</h1>';
+  }, 950);
   
-  if (appElement) {
-    appElement.classList.add('fade-out');
+  setTimeout(() => {
+    appElement.classList.remove('fade-out');
+    overlayElement.classList.remove('active')
+
     setTimeout(() => {
-      appElement.innerHTML = routes[path] || '<h1>Not Found</h1>';
-      appElement.classList.remove('fade-out');
-      setTimeout(() => {
-        appElement.classList.add('fade-in');
-        const canvas = document.querySelector('#gl') as HTMLCanvasElement
-        if(canvas){
-          console.log('running main');
-          console.log(canvas);
-          main()
-        }
-      }, 0);
-    }, 300);
-  }
+      const canvas = document.querySelector('#gl') as HTMLCanvasElement
+      const overviewPage = document.querySelector('.overview') as HTMLDivElement
+      if(canvas){
+        runGL()
+        new SmoothScroller()
+      } else if (overviewPage){
+        new OverviewPageSmoothScroll()
+      }
+    }, 0);
+    
+  }, 1250);
 };
 
 window.addEventListener("popstate", (event) => {

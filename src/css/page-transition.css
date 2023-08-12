@@ -1,10 +1,42 @@
-.fade-in {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+.fade-out {
+  filter: brightness(0.3);
+  transform: translateY(-20%);
+  transition: filter 0.5s ease-in-out, transform 5s;
+  pointer-events: none;
 }
 
-.fade-out {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none;
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  transform: translateY(100%);
+}
+
+.overlay.active {
+  animation: slide-in 1s cubic-bezier(.26,.32,0,.99);
+  transform: translateY(0%);
+  z-index: 10;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(100%);
+  } to {
+    transform: translateY(0%);
+  }
+}
+
+.about.content .line > h1,
+.about.content .line > div,
+.about.content .line > p {
+  transform: translateY(0%);
+  animation: show-line 1.5s cubic-bezier(.34,.46,0,.98); /* Add a smooth transition */
+}
+
+@keyframes show-line {
+  from{
+    transform: translateY(100%);
+  } to {
+    transform: translateY(0%);
+  }
 }

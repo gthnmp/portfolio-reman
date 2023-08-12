@@ -11,13 +11,13 @@ const about = `
     </div>
     <div class="col-start-9 col-span-4 text-lg uppercase leading-4 grid grid-cols-2 grid-rows-4 gap-y-1">
       <div class="line overflow-y-hidden w-max col-start-1">
-        <h1 class="">UI / UX Designer</h1> 
+        <p class="">UI / UX Designer</p> 
       </div>
       <a href="https://www.instagram.com/raflyfdz/" class="line overflow-y-hidden w-max col-start-2">
         <div class="">Instagram</div>
       </a>
       <div class="line overflow-y-hidden w-max row-start-3">
-        <h1 class="">Freelancer</h1> 
+        <p class="">Freelancer</p> 
       </div>
       <a href="https://www.linkedin.com/in/rafly-fathurrahman-diaz-822288286/" class="line overflow-y-hidden w-max col-start-2">
         <div class="">LinkedIn</div>

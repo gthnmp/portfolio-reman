@@ -13,7 +13,7 @@
 }
 
 .overlay.active {
-  animation: slide-in 1s cubic-bezier(.26,.32,0,.99);
+  animation: slide-in 750ms cubic-bezier(.26,.32,0,.99);
   transform: translateY(0%);
   z-index: 10;
 }
@@ -30,10 +30,52 @@
 .about.content .line > div,
 .about.content .line > p {
   transform: translateY(0%);
-  animation: show-line 1.5s cubic-bezier(.34,.46,0,.98); /* Add a smooth transition */
+  animation: show-line 2s cubic-bezier(.34,.46,0,.98); /* Add a smooth transition */
+}
+
+.overview.content .line > h1,
+.overview.content .line > div,
+.overview.content .line > p {
+  transform: translateY(0%);
+  animation: show-line 2s cubic-bezier(.34,.46,0,.98); /* Add a smooth transition */
+}
+
+.overview.content .item-container{
+  transform: translateY(0vh);
+  animation: overview-show-projects 1.5s cubic-bezier(.34,.46,0,.98); /* Add a smooth transition */
+}
+
+.selection.content .item-container {
+  transform: translateY(0%);
+  animation: selection-show-projects cubic-bezier(.34,.46,0,.98); /* Add a smooth transition */
+}
+
+@keyframes overview-show-projects {
+  from {
+    transform: translateY(100vh);
+  } to {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes selection-show-projects {
+  from {
+    transform: translateY(-100%);
+  } to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes selection-show-canvas {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
 }
 
 @keyframes show-line {
+
   from{
     transform: translateY(100%);
   } to {

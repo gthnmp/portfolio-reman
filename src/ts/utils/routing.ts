@@ -33,31 +33,30 @@ const render = (path: string) => {
     addLinkListeners();
   }
   
-  setTimeout(() => {
-    overlayElement.classList.add('active');
-  }, 250);
   appElement.classList.add('fade-out');
 
   setTimeout(() => {
+    overlayElement.classList.add('active');
+  }, 250);
+
+  setTimeout(() => {
     appElement.innerHTML = routes[path] || '<h1>Not Found</h1>';
-  }, 950);
+  }, 800);
   
   setTimeout(() => {
     appElement.classList.remove('fade-out');
     overlayElement.classList.remove('active')
 
-    setTimeout(() => {
-      const canvas = document.querySelector('#gl') as HTMLCanvasElement
-      const overviewPage = document.querySelector('.overview') as HTMLDivElement
-      if(canvas){
-        runGL()
-        new SmoothScroller()
-      } else if (overviewPage){
-        new OverviewPageSmoothScroll()
-      }
-    }, 0);
-    
-  }, 1250);
+    const canvas = document.querySelector('#gl') as HTMLCanvasElement
+    const overviewPage = document.querySelector('.overview') as HTMLDivElement
+    if(canvas){
+      runGL()
+      new SmoothScroller()
+    } else if (overviewPage){
+      new OverviewPageSmoothScroll()
+    }
+  }, 935);
+
 };
 
 window.addEventListener("popstate", (event) => {

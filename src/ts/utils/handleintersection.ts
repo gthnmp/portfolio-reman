@@ -17,7 +17,7 @@ export default function observeThumbnails(callback: (src: string | null) => void
     }
   }, {
     threshold: 0,
-    rootMargin: '0px -100% 0px 1px',
+    rootMargin: '0px -99% 0px 1px',
   });
 
   projectThumbnails.forEach(thumbnail => {

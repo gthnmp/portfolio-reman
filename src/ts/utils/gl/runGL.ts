@@ -1,17 +1,15 @@
 import observeThumbnails from "../handleintersection";
 import render from "./renderer";
-import works from '../../../../public/works.json'
 import initGL from "./initGL";
-import { preloadTexture, imageCache } from "./preloadTexture";
+import { preloader, imageCache } from "./preloadTexture";
 import initPositionBUffer from "./initPositionBuffer";
 
-export default function runGL() {
+export default async function runGL() {
   const canvas = document.getElementById("gl") as HTMLCanvasElement;
   const { gl, program } = initGL(canvas) 
-  works.forEach(work => {
-    preloadTexture(gl as WebGLRenderingContext, work.src)
-  })
+  preloader(gl as WebGLRenderingContext)
   const mainImageContainer:HTMLDivElement = document.querySelector('.main-image-container')!
+  
   observeThumbnails((src: string | null) => {
     if (src) {
       const {texture, aspectRatio} = imageCache[src];

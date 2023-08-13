@@ -55,7 +55,7 @@ const render = (path: string) => {
     } else if (overviewPage){
       new OverviewPageSmoothScroll()
     }
-  }, 900);
+  }, 935);
 
 };
 

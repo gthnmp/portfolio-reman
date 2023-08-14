@@ -1,26 +1,45 @@
 .navigation-layout {
   
   background-color: white;
-  font-size: 0.75rem/* 12px */;
+  font-size: 0.75rem;
   line-height: 1rem;
   text-transform: uppercase;
   font-weight: 500;
   line-height: 1rem;
 
-  position: fixed;
+  /* position: fixed; */
   width: 100vw;
-  bottom: 0;
   height: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  gap: 1rem;
   z-index: 20;
-
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-rows: repeat(1, minmax(0, 1fr));
+  
 }
 
+
+@media (min-width: 768px) {
+  .navigation-layout {
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+    position: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation-layout {
+    top: 0;
+    display: flex;
+    position:absolute;
+    gap: 1rem;
+  }
+  
+  .navigation-layout #name {
+    display: none;
+  }
+}
   .navigation-layout > div {
     display: flex;    
     align-items: center;
@@ -44,6 +63,10 @@
       bottom: 0;
       animation: mouse-leave 500ms;
       transform: translateX(-100%);
+    }
+    
+    .navigation-layout .active-nav {
+      border-bottom: solid 0.5px black;
     }
     
     .navigation-layout > div > a:hover::after {

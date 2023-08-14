@@ -14,20 +14,36 @@ const appElement = document.querySelector('#app') as HTMLDivElement;
 
 let listenersAdded = false;
 
+let currentPath = window.location.pathname;
+
 const addLinkListeners = () => {
-  document.querySelectorAll('[href^="/"]').forEach(link => 
+  const links = document.querySelectorAll('[href^="/"]');
+  links.forEach(link => 
     link.addEventListener("click", e => {
       e.preventDefault();
       const target = e.target as HTMLAnchorElement;
       const { pathname } = new URL(target.href);
-      window.history.pushState({ path: pathname }, pathname, pathname);
-      render(pathname);
+      
+      if (pathname !== currentPath) {
+        currentPath = pathname;
+        
+        window.history.pushState({ path: pathname }, pathname, pathname);
+        render(pathname);
+
+        links.forEach(link => {
+          if (link === target) {
+            link.classList.add('active-nav');
+          } else {
+            link.classList.remove('active-nav');
+          }
+        });
+      }
     })
-    );
-    
-    listenersAdded = true;
-  };
+  );
   
+  listenersAdded = true;
+};
+
 const render = (path: string) => {
   if (!listenersAdded) {
     addLinkListeners();
@@ -51,8 +67,8 @@ const render = (path: string) => {
     const overviewPage = document.querySelector('.overview') as HTMLDivElement
     if(canvas){
       runGL()
-      new SmoothScroller()
-    } else if (overviewPage){
+      new SmoothScroller() && window.innerWidth > 768
+    } else if (overviewPage && (window.innerWidth > 768)){
       new OverviewPageSmoothScroll()
     }
   }, 935);

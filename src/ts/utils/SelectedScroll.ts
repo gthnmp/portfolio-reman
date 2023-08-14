@@ -7,13 +7,15 @@ export default class SmoothScroller {
   selectionHeader: HTMLHeadElement;
   itemWidth: HTMLDivElement;
   maximumX: number;
+  touchSpeed: number;
 
   constructor() {
     this.current = 0;
     this.target = 0;
     this.isDragging = false;
     this.startY = 0;
-    this.ease = 0.075;
+    this.ease = window.innerWidth > 768 ? 0.075 :1;
+    this.touchSpeed = window.innerWidth > 768 ? 2.5 : 1;
 
     this.selectionHeader = document.querySelector('.selection > header')!;
     this.itemWidth = document.querySelector('.selection > header > .item-container:last-child')!;
@@ -79,7 +81,7 @@ export default class SmoothScroller {
   handleTouchMove(event: TouchEvent) {
     if (!this.isDragging) return;
     const deltaY = event.touches[0].clientX - this.startY;
-    this.target = Math.min(this.maximumX, Math.max(0, this.target - deltaY * 2.5));
+    this.target = Math.min(this.maximumX, Math.max(0, this.target - deltaY * this.touchSpeed ));
     this.startY = event.touches[0].clientX;
   }
 

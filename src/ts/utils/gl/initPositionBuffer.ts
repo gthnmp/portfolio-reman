@@ -1,6 +1,6 @@
 export default function initPositionBUffer (gl:WebGLRenderingContext, program:WebGLProgram, container:HTMLDivElement, imageAspectRatio:number){
   const rect = container.getBoundingClientRect();
-  const {top, right, bottom, left, width, height} = rect
+  const {top, left, width, height} = rect
   
   const baseline = window.innerWidth > 768 ? height : width;
   const objectHeight = window.innerWidth > 768 ? baseline : baseline * ( 1 / imageAspectRatio ); 

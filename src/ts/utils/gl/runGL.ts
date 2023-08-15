@@ -9,7 +9,6 @@ export default async function runGL() {
   const { gl, program } = initGL(canvas) 
   preloader(gl as WebGLRenderingContext)
   const mainImageContainer = document.querySelector('.main-image') as HTMLDivElement
-  console.log(imageCache['/projects/Cycle_01.webp']);
   
   observeThumbnails((src: string | null) => {
     if (src) {

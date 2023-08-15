@@ -2,6 +2,7 @@ import runGL from "./gl/runGL";
 import SmoothScroller from "./SelectedScroll";
 import { Overview, Selected, About } from "../routes";
 import OverviewPageSmoothScroll from "./OverviewScroll";
+import logImageSource from "./handleImageClick";
 
 const routes: { [path: string]: string }  = {
   "/": Overview,
@@ -68,8 +69,9 @@ const render = (path: string) => {
     if(canvas){
       runGL()
       new SmoothScroller() && window.innerWidth > 768
-    } else if (overviewPage && (window.innerWidth > 768)){
-      new OverviewPageSmoothScroll()
+    } else if (overviewPage){
+      new OverviewPageSmoothScroll() && window.innerWidth > 768 
+      logImageSource()
     }
   }, 935);
 

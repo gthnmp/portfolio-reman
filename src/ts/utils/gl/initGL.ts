@@ -21,7 +21,7 @@ const vertexShaderSource = `
 `;
 
 const fragmentShaderSource = `
-  precision lowp float;
+  precision highp float;
 
   uniform sampler2D u_image;
 
@@ -62,7 +62,7 @@ export default function initGL(canvas : HTMLCanvasElement): R{
 
   resizeCanvas(gl.canvas)
   gl.viewport(0, 0, canvas.width, canvas.height)
-  gl.clearColor(0,0,0, 0);
+  gl.clearColor(1.0,1.0,1.0,1.0);
   gl.clear(gl.COLOR_BUFFER_BIT);
   
   const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource) as WebGLShader

@@ -5,6 +5,7 @@ export default class OverviewPageSmoothScroll {
   startY: number;
   ease: number;
   container: HTMLHeadElement;
+  touchSpeed: number;
   maximumX: number;
 
   constructor() {
@@ -12,7 +13,8 @@ export default class OverviewPageSmoothScroll {
     this.target = 0;
     this.isDragging = false;
     this.startY = 0;
-    this.ease = 0.075;
+    this.ease =  window.innerWidth > 768 ? 0.075 : 1;
+    this.touchSpeed = window.innerWidth > 768 ? 2 : 1;
 
     this.container = document.querySelector('.overview')!;
     this.maximumX = parseFloat(getComputedStyle(this.container).height) - window.innerHeight * 0.75;
@@ -75,7 +77,7 @@ export default class OverviewPageSmoothScroll {
   handleTouchMove(event: TouchEvent) {
     if (!this.isDragging) return;
     const deltaY = event.touches[0].clientY - this.startY;
-    this.target = Math.min(this.maximumX, Math.max(0, this.target - deltaY * 2));
+    this.target = Math.min(this.maximumX, Math.max(0, this.target - deltaY * this.touchSpeed));
     this.startY = event.touches[0].clientY;
   }
 

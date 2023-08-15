@@ -27,7 +27,7 @@ const about = `
       </a>
     </div>
   </header>
-  <main class="text-3xl md:text-6xl text-black">
+  <main class="text-2xl md:text-6xl text-black">
     <div class="caption">
       <div class="line">
         <h1>CATALOGUED</h1>

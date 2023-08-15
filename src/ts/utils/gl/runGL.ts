@@ -1,4 +1,4 @@
-import observeThumbnails from "../handleintersection";
+import observeThumbnails from "../handler/handleintersection";
 import render from "./renderer";
 import initGL from "./initGL";
 import { preloader, imageCache } from "./preloadTexture";

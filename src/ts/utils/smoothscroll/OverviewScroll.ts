@@ -13,8 +13,8 @@ export default class OverviewPageSmoothScroll {
     this.target = 0;
     this.isDragging = false;
     this.startY = 0;
-    this.ease =  window.innerWidth > 768 ? 0.075 : 1;
-    this.touchSpeed = window.innerWidth > 768 ? 2 : 1;
+    this.ease =  0.075;
+    this.touchSpeed = 2;
 
     this.container = document.querySelector('.overview')!;
     this.maximumX = parseFloat(getComputedStyle(this.container).height) - window.innerHeight * 0.75;
@@ -28,7 +28,9 @@ export default class OverviewPageSmoothScroll {
     this.handleTouchMove = this.handleTouchMove.bind(this);
     this.handleTouchEnd = this.handleTouchEnd.bind(this);
 
-    this.init();
+    if(window.innerWidth > 768){
+      this.init();
+    }
   }
 
   lerp(start: number, end: number, t: number) {

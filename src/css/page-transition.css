@@ -6,6 +6,7 @@
 }
 
 .overlay {
+  background-color: white;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -16,14 +17,6 @@
   animation: slide-in 750ms cubic-bezier(.26,.32,0,.99);
   transform: translateY(0%);
   z-index: 10;
-}
-
-@keyframes slide-in {
-  from {
-    transform: translateY(100%);
-  } to {
-    transform: translateY(0%);
-  }
 }
 
 .about.content .line > h1,
@@ -48,6 +41,15 @@
 .selection.content .item-container {
   transform: translateY(0%);
 }
+
+@keyframes slide-in {
+  from {
+    transform: translateY(100%);
+  } to {
+    transform: translateY(0%);
+  }
+}
+
 
 @keyframes overview-show-projects {
   from {

@@ -6,41 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no">
     <meta name="robots" content="all">
-    <title>Rafly Diaz — Freelance Digital Designer</title>
-    <meta name="description" content="Contact information for Rafly Fathurrahman">
+    <meta name="description" content="Rafly Fathurrahman is a digital designer specialize in user interface and user experience.">
+    <meta property="og:title" content="Rafly Fathurrahman — Catalogue 23">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://reman.vercel.app">
-    <meta property="og:title" content="Rafly Fathurrahman — Book 23">
     <meta property="og:description" content="Contact information for Rafly Fathurrahman.">
-    <!-- <meta property="og:image" content="">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630"> -->
+    <meta property="og:image" content="https://raw.githubusercontent.com/gthnmp/portfolio-reman/main/public/preview.png"/>
     <link rel="stylesheet" href="/src/css/global.css">
-    <link rel="stylesheet" href="src/css/layout-main.css">
-    <link rel="stylesheet" href="src/css/layout-nav.css">
+    <link rel="stylesheet" href="/src/css/overview-page-style.css">
+    <link rel="stylesheet" href="/src/css/about-page-style.css">
+    <link rel="stylesheet" href="/src/css/selected-page-style.css">
+    <link rel="stylesheet" href="src/css/navbar-style.css">
     <link rel="stylesheet" href="src/css/page-transition.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Rafly Diaz — Freelance Digital Designer</title>
   </head>
   <body class="font-inter text-neutral-700 select-none">
-    <div class="overlay bg-white"></div>
-    <div id="app" class="w-full h-full bg-white">
+    <div class="overlay"></div>
+    <div id="app">
     </div>
     <nav class="navigation-layout">
       <div id="name" class="col-span-2">
         <h1>Catalogued Works</h1>
       </div>
       <div class="md:col-span-3">
-        <a id="about-button" href="/about">About Me</a>
+        <a id="about-button" aria-label="to /about" href="/about">About Me</a>
       </div>
       <div id="home-button" class="col-start-9">
-        <a href="/">Overview</a>
+        <a href="/" aria-label="to /">Overview</a>
       </div>
       <div id="selected-button">
-        <a href="/selected">Selected</a>
+        <a href="/selected" aria-label="to /selected">Selected</a>
       </div>
     </nav>
-    <script defer type="module" src="/src/ts/utils/routing.ts"></script>
+    <script defer type="module" src="/src/ts/utils/main.ts"></script>
   </body>
 </html>

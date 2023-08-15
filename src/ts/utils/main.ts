@@ -1,8 +1,8 @@
 import runGL from "./gl/runGL";
-import SmoothScroller from "./SelectedScroll";
+import SmoothScroller from "./smoothscroll/SelectedScroll";
 import { Overview, Selected, About } from "../routes";
-import OverviewPageSmoothScroll from "./OverviewScroll";
-import logImageSource from "./handleImageClick";
+import OverviewPageSmoothScroll from "./smoothscroll/OverviewScroll";
+import logImageSource from "./handler/handleImageClick";
 
 const routes: { [path: string]: string }  = {
   "/": Overview,
@@ -64,12 +64,10 @@ const render = (path: string) => {
     appElement.classList.remove('fade-out');
     overlayElement.classList.remove('active')
 
-    const canvas = document.querySelector('#gl') as HTMLCanvasElement
-    const overviewPage = document.querySelector('.overview') as HTMLDivElement
-    if(canvas){
+    if(currentPath === "/selected"){
       runGL()
       new SmoothScroller() && window.innerWidth > 768
-    } else if (overviewPage){
+    } else if (currentPath === "/"){
       new OverviewPageSmoothScroll() && window.innerWidth > 768 
       logImageSource()
     }

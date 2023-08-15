@@ -14,7 +14,7 @@ export default class SmoothScroller {
     this.target = 0;
     this.isDragging = false;
     this.startY = 0;
-    this.ease = window.innerWidth > 768 ? 0.075 : 0.1;
+    this.ease = window.innerWidth > 768 ? 0.075 : 1;
     this.touchSpeed = window.innerWidth > 768 ? 2.5 : 1;
 
     this.selectionHeader = document.querySelector('.selection > header')!;
